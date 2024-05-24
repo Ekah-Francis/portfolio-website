@@ -1,0 +1,67 @@
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .bar {
+    position: relative;
+    padding-left: 60px;
+  }
+
+  .bar::after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    border-radius: 100vw;
+    width: 50px;
+    top: 10px;
+    left: 0;
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+  }
+}
+.skill img {
+  @apply transition-all;
+}
+.skill:hover {
+  img {
+    @apply scale-[1.15];
+  }
+}
+
+.project:hover {
+  .project-image {
+    transform: scale(1.15);
+  }
+  .overlay {
+    opacity: 1;
+  }
+}
+
+.link::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  background-color: black;
+  border-radius: 100vw;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 150ms ease;
+}
+.link:hover::after {
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #a8aeb6;
+}

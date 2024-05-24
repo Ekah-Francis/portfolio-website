@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-color: #fff;
+    --text-color: #000;
+  }
+}
+
+@layer utilities {
+  .text-muted {
+    @apply text-neutral-500;
+  }
+  .text-gradient {
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gradient {
+    background-image: linear-gradient(to right, #2193b0, #6dd5ed);
+  }
+}
