@@ -43,6 +43,14 @@ const projects = [
     codeLink: "https://github.com/Ekah-Francis/countrylist",
     liveLink: "https://countrylist-fawn.vercel.app/",
   },
+
+  {
+    title: "Riket-Interior-Website",
+    image: "/images/riket2.png",
+    desc: "Interior decorator website created with React + Custom CSS5 and other css framework and explore API rendring gallery images directly from pixel.",
+    // codeLink: "https://github.com/Ekah-Francis/countrylist",
+    liveLink: "https://countrylist-fawn.vercel.app/",
+  },
 ];
 
 const navLinks = ["home", "about", "projects", "contact"];
