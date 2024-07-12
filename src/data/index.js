@@ -49,7 +49,7 @@ const projects = [
     image: "/images/riket2.png",
     desc: "Interior decorator website created with React + Custom CSS5 and other css framework and explore API rendring gallery images directly from pixel.",
     // codeLink: "https://github.com/Ekah-Francis/countrylist",
-    liveLink: "https://countrylist-fawn.vercel.app/",
+    liveLink: "https://riket-interior.vercel.app/",
   },
 ];
 
