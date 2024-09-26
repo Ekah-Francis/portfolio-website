@@ -11,44 +11,37 @@ const skills = [
   { name: "Bootstrap", logo: "/images/Bot.png" },
   { name: "javascript", logo: "/images/JavaScript-logo.svg" },
   { name: "react", logo: "/images/react-logo.svg" },
+  { name: "firebase", logo: "/images/firebase.svg" },
+  { name: "Git", logo: "/images/git.svg" },
+  { name: "Github", logo: "/images/github.svg" },
 ];
-
 const projects = [
-  // {
-  //   title: "24x7Library",
-  //   image: "/images/Library.png",
-  //   desc: "Allows user to manage their book list by adding book and persisting the data in local storage. Made with HTML, TailwindCSS, and Vanilla JavaScript.",
-  //   codeLink:
-  //     "https://github.com/M-Taha-Amin/the-odin-project/tree/main/Library",
-  //   liveLink: "https://m-taha-amin.github.io/the-odin-project/Library/dist/",
-  // },
   {
     title: "E-commerce Template",
     image: "/images/ecome.png",
-    desc: "This is an Ecommerce website Template made with HTM, CSS and JAVASCIPT",
+    desc: "This is an Ecommerce website Template made with HTML, CSS, and JavaScript.",
     codeLink: "https://github.com/Ekah-Francis/Ecommerce",
     liveLink: "https://ecommerce-umber-two-49.vercel.app/",
   },
   {
     title: "Image search app",
     image: "/images/image-search.png",
-    desc: "Search and view beautiful images online with this website",
+    desc: "Search and view beautiful images online with this website.",
     codeLink: "https://github.com/Ekah-Francis/image-search-app",
     liveLink: "https://image-search-app-henna.vercel.app/",
   },
   {
     title: "Countries List",
     image: "/images/countries-app.png",
-    desc: "Pulls data from REST API stored in json file and renders it with React + TailwindCSS. Dark Mode Feature also available.",
-    codeLink: "https://github.com/Ekah-Francis/countrylist",
+    desc: "Pulls data from REST API stored in JSON and renders it with React + TailwindCSS. Dark Mode Feature also available.",
+    // codeLink: "https://github.com/Ekah-Francis/countrylist",
     liveLink: "https://countrylist-fawn.vercel.app/",
   },
-
   {
     title: "Riket-Interior-Website",
     image: "/images/riket2.png",
-    desc: "Interior decorator website created with React + Custom CSS5 and other css framework and explore API rendring gallery images directly from pixel.",
-    // codeLink: "https://github.com/Ekah-Francis/countrylist",
+    desc: "Interior decorator website created with React + Custom CSS5 and other CSS frameworks. API renders gallery images directly from Pixel.",
+    // No codeLink for this project
     liveLink: "https://riket-interior.vercel.app/",
   },
 ];
