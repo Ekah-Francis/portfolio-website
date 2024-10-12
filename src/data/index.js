@@ -7,7 +7,7 @@ Currently, I am expanding my skill set by diving into backend development. My go
 
 const skills = [
   { name: "html & css", logo: "/images/html-css.webp" },
-  // { name: "sass", logo: "/images/Sass-logo.png" },
+  { name: "sass", logo: "/images/Sass-logo.png" },
   { name: "Bootstrap", logo: "/images/Bot.png" },
   { name: "javascript", logo: "/images/JavaScript-logo.svg" },
   { name: "react", logo: "/images/react-logo.svg" },
@@ -46,6 +46,4 @@ const projects = [
   },
 ];
 
-const navLinks = ["home", "about", "projects", "contact"];
-
-export { about, skills, navLinks, projects };
+export { about, skills, projects };

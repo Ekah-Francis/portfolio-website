@@ -1,11 +1,32 @@
-import { useState } from "react";
-import { projects } from "../data";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase"; // Ensure firebase is correctly imported
 
 const ProjectSection = () => {
-  const [currentPage, setCurrentPage] = useState(1); // Start at page 1
+  const [projects, setProjects] = useState([]); // To store fetched projects
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Number of projects per page
   const projectsPerPage = 2;
+
+  // Fetch projects from Firebase on component mount
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const projectCollection = collection(db, "projects");
+        const projectSnapshot = await getDocs(projectCollection);
+        const projectList = projectSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProjects(projectList); // Store fetched projects
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   // Calculate the total number of pages
   const totalPages = Math.ceil(projects.length / projectsPerPage);
@@ -37,13 +58,14 @@ const ProjectSection = () => {
       <h2 className="text-center font-ChoplinBold text-4xl">Projects</h2>
 
       <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-        {currentProjects.map((project, i) => (
+        {currentProjects.map((project) => (
           <div
-            key={i}
+            key={project.id}
             className="project relative h-[300px] cursor-default select-none items-center justify-center overflow-hidden rounded-md shadow-md ring-1 ring-slate-200"
           >
             <img
-              src={project.image}
+              src={project.imageUrl} // Use imageUrl from Firebase
+              alt={project.title}
               className="project-image h-full object-cover object-center transition-all duration-500"
               loading="lazy"
             />
@@ -56,7 +78,6 @@ const ProjectSection = () => {
               </p>
             </div>
             <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-black/75 py-2">
-              {/* Conditionally render Source Code button */}
               {project.codeLink && (
                 <a
                   className="mr-2 inline-block cursor-pointer rounded-md bg-white px-4 py-2 font-PoppinsSemiBold uppercase xs:mr-3"
@@ -67,7 +88,6 @@ const ProjectSection = () => {
                   <span className="hidden xs:inline-block">Source</span> Code
                 </a>
               )}
-              {/* Conditionally render Live Website button */}
               {project.liveLink && (
                 <a
                   className="bg-gradient inline-block cursor-pointer rounded-md px-4 py-2 font-PoppinsSemiBold uppercase text-white"
@@ -88,7 +108,11 @@ const ProjectSection = () => {
         <button
           onClick={prevPage}
           disabled={currentPage === 1}
-          className={`mr-4 rounded-md px-4 py-2 text-white ${currentPage === 1 ? "   cursor-not-allowed bg-gray-500" : "bg-gradient bg-blue-500 hover:bg-blue-600"}`}
+          className={`mr-4 rounded-md px-4 py-2 text-white ${
+            currentPage === 1
+              ? "cursor-not-allowed bg-gray-500"
+              : "bg-gradient bg-blue-500 hover:bg-blue-600"
+          }`}
         >
           Previous
         </button>
@@ -98,7 +122,11 @@ const ProjectSection = () => {
         <button
           onClick={nextPage}
           disabled={currentPage === totalPages}
-          className={`ml-4 rounded-md px-4 py-2 text-white ${currentPage === totalPages ? "  cursor-not-allowed bg-gray-500" : " bg-gradient bg-blue-500 hover:bg-blue-600"}`}
+          className={`ml-4 rounded-md px-4 py-2 text-white ${
+            currentPage === totalPages
+              ? "cursor-not-allowed bg-gray-500"
+              : "bg-gradient bg-blue-500 hover:bg-blue-600"
+          }`}
         >
           Next
         </button>
